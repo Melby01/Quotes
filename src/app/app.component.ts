@@ -16,7 +16,7 @@ export class AppComponent {
   }*/
   export class AppComponent {
     title = 'Quotes';
-    quote = 'any quote of your choice';
+    quotes = 'any quote of your choice';
   }
 
 export class AppComponent {
