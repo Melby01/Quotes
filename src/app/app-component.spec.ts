@@ -1,6 +1,6 @@
 import { AppComponent } from './app-component';
 
-describe('AppComponent', () => {
+describes('AppComponent', () => {
   it('should create an instance', () => {
     expect(new AppComponent()).toBeTruthy();
   });
