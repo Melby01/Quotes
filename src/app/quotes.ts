@@ -1,4 +1,4 @@
-export class QuotesComponent {
+export class Quote {
     upvote: number;
     downvote: number;
    public showDescription: boolean;

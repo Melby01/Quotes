@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Quote } from './../quotes';
+import { Quote } from '../quotes';
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
@@ -7,16 +7,16 @@ import { Quote } from './../quotes';
 })
 export class QuoteComponent implements OnInit {
   quotes: Quote[] = [
-    new Quote(1, 'Your time is limited so dont waste it living someone elses life', 'by Orinah', new Date(2021,  3, 29)),
+    new Quote(1, 'Your time is limited, so do not waste it living someone else life. Do not be trapped by dogma', 'by Orinah', new Date(2021,  3, 29)),
     new Quote(2, 'If you look at what you have in life you will always  have more', 'by Liche', new Date(2021, 2, 21)),
-    new Quote(3, 'Life is what happens when you are busy making other plans', 'by Tashy', new Date(2021, 6, 30)),
+    new Quote(3, 'Life is what happens when you are busyIf life were predictable it would cease to be life, and be without flavor making other plans', 'by Tashy', new Date(2021, 6, 30)),
     new Quote(4, 'The way to get started is to quit talking and begin doing', 'by Melby', new Date(2021, 8, 18)),
     new Quote(5, 'If life were predictable it would cease to be life,and be without flavor', 'by Roline', new Date(2020, 3, 19)),
   ];
-  upVote(index) {
+  upVote(index:any) {
     this.quotes[index].upvote++;
   }
-  downVote(index) {
+  downVote(index:any) {
     this.quotes[index].downvote++;
   }
   highestVote(){
