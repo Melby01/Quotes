@@ -1,22 +1,26 @@
-import { Quote } from '../quote';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Quote } from '../quote'; 
 
 @Component({
-  selector: 'app-quote-form',
-  templateUrl: './quote-form.component.html',
-  styleUrls: ['./quote-form.component.css']
+  selector: 'app-quote-details',
+  templateUrl: './quote-details.component.html',
+  styleUrls: ['./quote-details.component.css']
 })
-export class QuoteFormComponent implements OnInit {
-  newQuote = new Quote(0, '' , '', new Date());
-  @Output() addQuote = new EventEmitter<Quote>();
-
-  // tslint:disable-next-line: typedef
-  submitQuote(){
-    this.addQuote.emit(this.newQuote);
-      }
+export class QuoteDetailsComponent implements OnInit {
+  @Input() newQuote: Quote;
+  @Output() isRead = new EventEmitter<boolean>();
+  deleteQuote(read:boolean){
+    this.isRead.emit(read);
+  }
+  upvote(){
+    this.newQuote.upvote+=1;
+  }
+  downvote(){
+    this.newQuote.downvote+=1;
+  }
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }

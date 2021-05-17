@@ -1,72 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { Quote } from '../quotes';
+import { Quote } from '../quote';
+
 @Component({
   selector: 'app-quote',
   templateUrl: './quote.component.html',
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
-  quotes: Quote[] = [
-    new Quote(1, 'Your time is limited, so do not waste it living someone else life. Do not be trapped by dogma', 'by Orinah', new Date(2021,  3, 29)),
-    new Quote(2, 'If you look at what you have in life you will always  have more', 'by Liche', new Date(2021, 2, 21)),
-    new Quote(3, 'Life is what happens when you are busyIf life were predictable it would cease to be life, and be without flavor making other plans', 'by Tashy', new Date(2021, 6, 30)),
-    new Quote(4, 'The way to get started is to quit talking and begin doing', 'by Melby', new Date(2021, 8, 18)),
-    new Quote(5, 'If life were predictable it would cease to be life,and be without flavor', 'by Roline', new Date(2020, 3, 19)),
-  ];
-  upVote(index:any) {
-    this.quotes[index].upvote++;
-  }
-  downVote(index:any) {
-    this.quotes[index].downvote++;
-  }
-  highestVote(){
-    let appHighestVote =  new Quote(0, '' , '', new Date());
-    for (let i = 0; i < this.quotes.length; i++) {
-      if (this.quotes[i].upvote > appHighestVote.upvote) {
-        appHighestVote = this.quotes[i];
-      }
-    }
-    if (appHighestVote.upvote > 0) {
-      return appHighestVote;
-    }else {
-      return;
-    }
-  }
-
- 
-  completeQuote(isComplete, index){
-    if (isComplete) {
-      this.quotes.splice(index, 1);
-    }
-  }
-
-
-  
-  deleteQuote(isComplete, index){
-    if (isComplete) {
+  quotes:Quote[] = [
+    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
+    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
+    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
+    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
+    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
     
-      let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`);
+  ];
+  get sortQuotes() {
+    return this.quotes.sort((a, b) => {
+      return <any>new Date(b.datePosted) - <any>new Date(a.datePosted);
+    });
+  }
 
-      if (toDelete){
-        this.quotes.splice(index, 1);
+  addedQuote(quote){
+    let arraysize = this.quotes.length;
+    quote.id = arraysize+1;
+    quote.datePosted = new Date(quote.datePosted)
+    this.quotes.push(quote)
+  }
+  quoteDelete(isRead, index){
+    if (isRead) {
+      let toDelete = confirm(`Are you sure you want to delete this Quote?`)
+      if(toDelete){
+        this.quotes.splice(index,1);
       }
+      
     }
   }
-  addNewQuote(quote){
-     
-    let quoteLength = this.quotes.length;
-    quote.id = quoteLength + 1;
-    quote.completeDate = new Date(quote.completeDate);
-    this.quotes.push(quote);
-  }
-  
-  toggleDetails(index){
-    this.quotes[index].showDescription = !this.quotes[index].showDescription;
-  }
-
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

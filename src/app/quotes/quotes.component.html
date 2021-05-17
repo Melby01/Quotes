@@ -1,29 +1,16 @@
-<div class="container">
-    <h1>Choose or add your favorite quotes</h1>
-    <hr>
-  
-    <div class="row">
-      <div class="col-md-6">
-        <div *ngFor='let quote of quotes;let i = index'>
-          <h2 *ngIf="quote === highestVote()" appHighUpvote><strong>Highest Likes.</strong> </h2>
-          <div>
-            <h4 id={{i}} appStrikethrough>{{quote.name}} due on {{quote.completeDate|date|uppercase}}</h4>
-            <button (click)='toggleDetails(i)' class="btn btn-primary">Toggle Details</button>
-          </div>
-  
-          <div *ngIf='quote.showDescription'>
-            <app-quote-detail [quote]='quote' (isComplete)='deleteQuote($event,i)'></app-quote-detail>
-          </div>
-          <button (click)="upVote(i)" class="btn btn-outline-danger">Like {{quote.upvote}}</button>
-          <button (click)="downVote(i)" class="btn btn-outline-danger">Dislike {{quote.downvote}}</button>
-  
-        </div>
-      </div>
-      <div class="col-md-6">
-        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngFor="let quote of sortQuotes let i= index" class="quote-body">
+        <p>{{quote.words}}</p>
+        <h5>Review</h5>
+        <app-quote-details *ngIf='quote' bind-newQuote='quote' (isRead)='quoteDelete($event,i)'>
+        </app-quote-details>
+          by <span id="name">{{quote.name}} </span>
       </div>
     </div>
-  
-    <p *ngIf='quotes.length > 5'>You have excess quotes</p>
+    <div class="col-md-3">
+      <app-quote-form (add)="addedQuote($event)"></app-quote-form>
+    </div>
   </div>
-  
+</div>
