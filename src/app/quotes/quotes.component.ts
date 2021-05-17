@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Quote } from '../quote';
 
 @Component({
-  selector: 'app-quote',
-  templateUrl: './quote.component.html',
-  styleUrls: ['./quote.component.css']
+  selector: 'app-quotes',
+  templateUrl: './quotes.component.html',
+  styleUrls: ['./quotes.component.css']
 })
 export class QuoteComponent implements OnInit {
   quotes:Quote[] = [
     new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
-    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
-    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
-    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
-    new Quote (1,'Melby','The greatest glory in living lies not in never falling, but in rising every time we fall.','Nelson Mandela', new Date(2021,4,15),0,0),
+    new Quote (1,'Melby','Get busy living or get busy dying.','Chris Harvey', new Date(2021,4,28),0,0),
+    new Quote (1,'Melby','You only live once, but if you do it right, once is enough.','Labrinth James', new Date(2021,3,10),0,0),
+    new Quote (1,'Melby','The purpose of our lives is to be happy.','Marie Lorey', new Date(2019,4,23),0,0),
+    new Quote (1,'Melby','Never let the fear of striking out keep you from playing the game.','Jordan Smith', new Date(2021,4,19),0,0),
     
   ];
   get sortQuotes() {
