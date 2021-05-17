@@ -1,0 +1,9 @@
+<div class="votes">
+    <button  (click)='upvote()'>Like</button>
+    <div id="upVote">Up votes<br>{{newQuote.upvote}}</div>
+    <button  (click)='downvote()'>Dislike</button> 
+    <div id="downVote">Down Votes<br>{{newQuote.downvote}}</div>
+    <button  id="del" (click)='deleteQuote(true)'>Delete</button> 
+  </div>
+  <p >Author: <span class="author">{{newQuote.author}}</span></p>
+  Posted: {{newQuote.datePosted| dateAgo}} days ago.
