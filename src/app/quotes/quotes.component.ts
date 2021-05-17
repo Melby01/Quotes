@@ -33,9 +33,7 @@ export class QuoteComponent implements OnInit {
     }
   }
 
-
-
-  // tslint:disable-next-line: typedef
+ 
   completeQuote(isComplete, index){
     if (isComplete) {
       this.quotes.splice(index, 1);
@@ -43,10 +41,10 @@ export class QuoteComponent implements OnInit {
   }
 
 
-  // tslint:disable-next-line: typedef
+  
   deleteQuote(isComplete, index){
     if (isComplete) {
-      // tslint:disable-next-line: prefer-const
+    
       let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`);
 
       if (toDelete){
@@ -55,13 +53,13 @@ export class QuoteComponent implements OnInit {
     }
   }
   addNewQuote(quote){
-    // tslint:disable-next-line: prefer-const
+     
     let quoteLength = this.quotes.length;
     quote.id = quoteLength + 1;
     quote.completeDate = new Date(quote.completeDate);
     this.quotes.push(quote);
   }
-  // tslint:disable-next-line: typedef
+  
   toggleDetails(index){
     this.quotes[index].showDescription = !this.quotes[index].showDescription;
   }
